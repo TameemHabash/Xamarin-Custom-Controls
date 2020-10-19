@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              x:Class="UiTestApp.Controls.HitEntry"
+             x:Name="hitEntryView">
+    <ContentView.Content>
+        <Grid>
+            <Entry x:Name="EntryField" 
+                   Completed="Handle_Completed" 
+                   HeightRequest="46" 
+                   Text="{Binding Source={x:Reference hitEntryView}, Path=Text}" 
+                   ReturnType="{Binding Source={x:Reference hitEntryView}, Path=ReturnType}"
+                   IsPassword="{Binding Source={x:Reference hitEntryView}, Path=IsPassword}"
+                   PlaceholderColor="{Binding Source={x:Reference hitEntryView}, Path=TitleColor}"
+                   Keyboard="{Binding Source={x:Reference hitEntryView}, Path=Keyboard}"
+                   TextColor="{Binding Source={x:Reference hitEntryView}, Path=TextColor}" 
+                   BackgroundColor="{Binding Source={x:Reference hitEntryView}, Path=BackgroundColor}"
+                   Placeholder=""
+                   Unfocused="Handle_Unfocused" 
+                   Focused="Handle_Focused">
+            </Entry>
+            <Label x:Name="LabelTitle" 
+                   Text="{Binding Source={x:Reference hitEntryView}, Path=Title}" TextColor="{Binding Source={x:Reference hitEntryView}, Path=TitleColor}" VerticalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Handle_Tapped" />
+                </Label.GestureRecognizers>
+            </Label>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

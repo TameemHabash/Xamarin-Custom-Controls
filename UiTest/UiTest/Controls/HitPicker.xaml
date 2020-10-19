@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UiTestApp.Controls.HitPicker"
+             x:Name="hitPickerView">
+    <ContentView.Content>
+        <Grid>
+            <Picker x:Name="PickerField" 
+                 HeightRequest="46" 
+                 TitleColor="{Binding Source={x:Reference hitPickerView}, Path=TitleColor}"
+                 TextColor="{Binding Source={x:Reference hitPickerView}, Path=TextColor}" 
+                 BackgroundColor="{Binding Source={x:Reference hitPickerView}, Path=BackgroundColor}"
+                 Unfocused="Handle_Unfocused" 
+                 Focused="Handle_Focused"
+                 ItemsSource="{Binding Source={x:Reference hitPickerView}, Path=ItemsSource}"
+                 SelectedItem="{Binding Source={x:Reference hitPickerView}, Path=SelectedItem}"
+                 IsEnabled="False">
+            </Picker>
+            <Label x:Name="LabelTitle" 
+                 Text="{Binding Source={x:Reference hitPickerView}, Path=Title}" TextColor="{Binding Source={x:Reference hitPickerView}, Path=TitleColor}" VerticalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Handle_Tapped" />
+                </Label.GestureRecognizers>
+            </Label>
+        </Grid>
+    </ContentView.Content>
+</ContentView>
